@@ -32,7 +32,7 @@ var quotes = [
 
 app.use(bodyParser.urlencoded({ extended: true}));
 
-app.listen(port, function(){
+app.listen(process.env.PORT || port, function(){
     console.log("App is listening to port " + port);
 })
 
