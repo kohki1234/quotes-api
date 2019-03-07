@@ -5,7 +5,7 @@ var db = new sqlite3.Database("quotes.db")
 
 var bodyParser = require("body-parser");
 var app = express();
-var port = 3000;
+var port = process.env.port || 1337;
 
 var quotes = [
     {
@@ -33,7 +33,7 @@ var quotes = [
 app.use(bodyParser.urlencoded({ extended: true}));
 
 app.listen(port, function(){
-    console.log("App is listening to port 3000")
+    console.log("App is listening to port " + port);
 })
 
 app.get('/', function(request, response){
