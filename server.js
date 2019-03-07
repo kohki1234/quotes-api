@@ -7,29 +7,6 @@ var bodyParser = require("body-parser");
 var app = express();
 var port = process.env.port || 1337;
 
-var quotes = [
-    {
-        id: 1,
-        quote: "The best is yet to come",
-        author: "Unknown",
-        year : 2000
-    },
-    {
-        id: 2,
-        quote: "This is a quote",
-        author: "First Last",
-        year : 1930
-    },
-    {
-        id: 3,
-        quote: "This is another quote",
-        author: "First2 Last2",
-        year : 1910
-    },
-];
-
-
-
 app.use(bodyParser.urlencoded({ extended: true}));
 
 app.listen(process.env.PORT || port, function(){
@@ -81,9 +58,20 @@ app.get('/quotes/:id', function(req, res){
 
 
 app.post('/quotes', function(req, res){
-
     db.run('INSERT INTO Quotes VALUES (?, ?, ?)', [req.body.quote, req.body.author, req.body.year]);
     //req.body.quote, req.body.author, req.body.year
     console.log("Insert a new quote : " + req.body.quote);
     res.json(req.body);
+})
+
+
+app.delete('/quotes/:id/delete', function (req, res) {
+    db.run('DELETE FROM quotes WHERE rowid = ?', [req.params.id], function(err, row) {
+        if(err) {
+            console.log(err);
+        } else {
+            console.log(`Row(s) deleted ${this.changes}`);
+            res.send("ID :" + req.params.id + " is deleted");
+        }
+    });
 })
