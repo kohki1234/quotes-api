@@ -54,6 +54,7 @@ app.get('/quotes', function(req, res){
     }
 });
 
+
 app.get('/quotes/:id', function(req, res){
     console.log("return quote with the ID: " + req.params.id);
     db.get('SELECT * FROM quotes WHERE rowid = ?', [req.params.id], function(err, row){
