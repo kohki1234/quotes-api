@@ -7,6 +7,7 @@ var bodyParser = require("body-parser");
 var app = express();
 var port = process.env.port || 1337;
 
+
 app.use(bodyParser.urlencoded({ extended: true}));
 
 app.listen(process.env.PORT || port, function(){
@@ -16,6 +17,15 @@ app.listen(process.env.PORT || port, function(){
 app.get('/', function(request, response){
     response.send("Get request received at '/'")
 })
+
+app.get('/login', function (req, res) {
+    res.sendFile(__dirname + '/public/main/login.html');
+})
+
+
+// This renders pages under '/public' folder.
+app.use(express.static(__dirname + '/public'));
+
 
 app.get('/quotes', function(req, res){
     if(req.query.year){
@@ -75,3 +85,4 @@ app.delete('/quotes/:id/delete', function (req, res) {
         }
     });
 })
+
