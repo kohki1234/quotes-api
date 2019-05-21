@@ -1,6 +1,8 @@
 
 
-## This app was made for creating API endpoint using NodeJS.
+## quotes-api description
+This app was made for creating API endpoint using NodeJS.
+You can view the all/ individual quotes, delete, post quotes.
 
 
 Main URL
