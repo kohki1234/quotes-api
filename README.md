@@ -29,7 +29,8 @@ author
 year
 
 
-### 3) https://quote-api-kohki.herokuapp.com/quotes/:id/delete
+### 3) Deleting existing post
+endpoint : https://quote-api-kohki.herokuapp.com/quotes/:id/delete
 
 Header : 
 Content-type - application/x-www-form-urlencoded
