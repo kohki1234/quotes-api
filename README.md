@@ -29,7 +29,7 @@ author
 year
 
 
-### 3) Deleting existing post
+### 3) Deleting existing post (DELETE)
 endpoint : https://quote-api-kohki.herokuapp.com/quotes/:id/delete
 
 Header : 
