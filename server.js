@@ -19,7 +19,6 @@ var dd_options = {
   
   // Add the datadog-middleware before your router
   app.use(connect_datadog);
-  app.use(router);
 
 var quotes = [
     {
