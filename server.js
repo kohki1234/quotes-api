@@ -7,6 +7,20 @@ var bodyParser = require("body-parser");
 var app = express();
 var port = process.env.port || 1337;
 
+var dd_options = {
+    'response_code':true,
+    'tags': ['app:my_app']
+      }
+  
+  var connect_datadog = require('connect-datadog')(dd_options);
+  
+//   // Add your other middlewares
+//   app.use(...);
+  
+  // Add the datadog-middleware before your router
+  app.use(connect_datadog);
+  app.use(router);
+
 var quotes = [
     {
         id: 1,
