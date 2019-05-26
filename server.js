@@ -2,6 +2,7 @@ var express = require("express");
 
 var sqlite3 = require('sqlite3');
 var db = new sqlite3.Database("quotes.db")
+var cors = require('cors')
 
 var bodyParser = require("body-parser");
 var app = express();
@@ -19,6 +20,8 @@ var dd_options = {
   
   // Add the datadog-middleware before your router
   app.use(connect_datadog);
+
+  app.use(cors())
 
 var quotes = [
     {
